@@ -15,7 +15,7 @@ if __name__ == "__main__":
         in_ida = False
     #
     if (in_ida):
-        trace_path = idc.AskStr("ins-jni2.txt", "trace path")
+        trace_path = idc.AskStr("trace-jni.txt", "trace path")
         if (not os.path.isabs(trace_path)):
             script_path = os.path.split(os.path.realpath(__file__))[0]
             trace_path = "%s/%s"%(script_path, trace_path)
@@ -57,13 +57,13 @@ if __name__ == "__main__":
             comm = str(int_call)
             idc.MakeComm(int_addr, comm)
             color = 0
-            if (int_call > 0 and int_call < 10):
-                color = 0x00FFFF
+            if (int_call > 0 and int_call < 20):
+                color = 0xFFAFFF
             #
-            elif (int_call >=10 and int_call < 20):
-                color = 0x00AFFF
+            elif (int_call >=20 and int_call < 40):
+                color = 0xFF7FFF
             else:
-                color = 0x0000FF
+                color = 0xFF00FF
             idc.SetColor(int_addr, idc.CIC_ITEM, color)
         #
     #
